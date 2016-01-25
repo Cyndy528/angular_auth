@@ -62,12 +62,16 @@ app.controller('MainCtrl', ['$scope', '$auth', '$http', '$location',
 app.controller('AuthCtrl', ['$scope', '$auth', '$location',
   function ($scope, $auth, $location) {
     // if $scope.currentUser, redirect to '/profile'
-
+      if ($scope.currentUser){
+        $location.path('/profile');
+      }
     // clear sign up / login forms
+      $scope.login = {}; 
+      $scope.signup = {}; 
 
     $scope.signup = function() {
       // signup (https://github.com/sahat/satellizer#authsignupuser-options)
-
+        
         // set token (https://github.com/sahat/satellizer#authsettokentoken)
 
         // call $scope.isAuthenticated to set $scope.currentUser
